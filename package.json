@@ -1,0 +1,14 @@
+{
+  "name": "proyect-coder",
+  "version": "1.0.0",
+  "description": "Proyecto de CoderHouse",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.1.9"
+  }
+}

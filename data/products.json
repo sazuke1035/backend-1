@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1743980212050-2027",
+    "title": "Zapatillas deportivas",
+    "description": "Zapatillas ligeras y cómodas para entrenamiento diario.",
+    "code": "ZAP12345",
+    "price": 49990,
+    "status": true,
+    "stock": 25,
+    "category": "calzado",
+    "thumbnails": [
+      "/images/productos/zapatillas1.jpg",
+      "/images/productos/zapatillas2.jpg"
+    ]
+  },
+  {
+    "id": "1743980229523-5900",
+    "title": "Camiseta térmica",
+    "description": "Camiseta térmica de manga larga para climas fríos.",
+    "code": "CAM54321",
+    "price": 29990,
+    "status": true,
+    "stock": 40,
+    "category": "ropa",
+    "thumbnails": [
+      "/images/productos/camiseta1.jpg"
+    ]
+  },
+  {
+    "id": "1743980241743-6825",
+    "title": "Guantes de portero",
+    "description": "Guantes con excelente agarre y protección para dedos.",
+    "code": "GUA98765",
+    "price": 34990,
+    "status": true,
+    "stock": 15,
+    "category": "accesorios",
+    "thumbnails": [
+      "/images/productos/guantes1.jpg",
+      "/images/productos/guantes2.jpg"
+    ]
+  },
+  {
+    "id": "1743980251976-676",
+    "title": "Pelota profesional",
+    "description": "Pelota oficial de torneo, aprobada por federación.",
+    "code": "PEL00001",
+    "price": 39990,
+    "status": true,
+    "stock": 30,
+    "category": "equipamiento",
+    "thumbnails": [
+      "/images/productos/pelota1.jpg"
+    ]
+  },
+  {
+    "id": "1743980263037-5700",
+    "title": "Short de entrenamiento",
+    "description": "Short liviano y resistente para entrenamiento diario.",
+    "code": "SHO11223",
+    "price": 19990,
+    "status": true,
+    "stock": 50,
+    "category": "ropa",
+    "thumbnails": [
+      "/images/productos/short1.jpg"
+    ]
+  },
+  {
+    "id": "1743980271506-629",
+    "title": "Camiseta de arquero",
+    "description": "Diseñada con almohadillas para protección extra.",
+    "code": "CAMARQ77",
+    "price": 32990,
+    "status": true,
+    "stock": 20,
+    "category": "ropa",
+    "thumbnails": [
+      "/images/productos/camisetaarquero1.jpg"
+    ]
+  }
+]
