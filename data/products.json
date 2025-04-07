@@ -58,9 +58,9 @@
     "title": "Short de entrenamiento",
     "description": "Short liviano y resistente para entrenamiento diario.",
     "code": "SHO11223",
-    "price": 19990,
+    "price": 19991,
     "status": true,
-    "stock": 50,
+    "stock": 50, 
     "category": "ropa",
     "thumbnails": [
       "/images/productos/short1.jpg"
