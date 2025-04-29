@@ -1,0 +1,65 @@
+
+    <h1>Productos en Tiempo Real</h1>
+    <form id="productForm">
+        <input type="text" id="productName" placeholder="Nombre del producto" required>
+        <button type="submit">Agregar Producto</button>
+    </form>
+    <ul id="productsList"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // Escuchar el evento de actualización de productos
+        socket.on('updateProducts', (product) => {
+            const productsList = document.getElementById('productsList');
+            const newProduct = document.createElement('li');
+            newProduct.textContent = product.name;
+            newProduct.innerHTML += ` <button onclick="deleteProduct('${product.name}')">Eliminar</button>`;
+            productsList.appendChild(newProduct);
+        });
+
+        // Escuchar el evento de eliminación de productos
+        socket.on('removeProduct', (productId) => {
+            const productsList = document.getElementById('productsList');
+            const items = productsList.getElementsByTagName('li');
+            for (let item of items) {
+                if (item.textContent.includes(productId)) {
+                    productsList.removeChild(item);
+                    break;
+                }
+            }
+        });
+
+        document.getElementById('productForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const productName = document.getElementById('productName').value;
+            const newProduct = { name: productName };
+
+            // Enviar solicitud para agregar el nuevo producto
+            fetch('/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newProduct)
+            })
+            .then(response => response.json())
+            .then(product => {
+                socket.emit('newProduct', product); // Emitir el nuevo producto a través de Socket.io
+                document.getElementById('productName').value = ''; // Limpiar el campo
+            });
+        });
+
+        function deleteProduct(productName) {
+            // Enviar solicitud para eliminar el producto
+            fetch(`/api/products/${productName}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(() => {
+                socket.emit('deleteProduct', productName); // Emitir el nombre del producto eliminado
+            });
+        }
+    </script>
+

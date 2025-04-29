@@ -4,6 +4,13 @@ import { readJSON, writeJSON, generateId } from '../utils/utils.js';
 const productsRouter = express.Router();
 const PRODUCTS_FILE = 'data/products.json';
 
+let io; // Variable para el servidor de socket.io
+
+// Función para establecer el servidor de socket.io
+export const setSocketIO = (socketIO) => {
+    io = socketIO;
+};
+
 productsRouter.get('/', async (req, res) => {
     try {
         const products = await readJSON(PRODUCTS_FILE);
@@ -66,6 +73,9 @@ productsRouter.delete('/:id', async (req, res) => {
             return res.status(404).json({ error: 'Producto no encontrado' });
         }
         await writeJSON(PRODUCTS_FILE, filteredProducts);
+        if (io) {
+            io.emit('removeProduct', req.params.id); // Emitir la eliminación del producto
+        }
         res.json({ message: 'Producto eliminado' });
     } catch (error) {
         res.status(500).json({ error: 'Error al eliminar el producto' });
